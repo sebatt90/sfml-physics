@@ -31,12 +31,13 @@ namespace ent
             b2BodyDef m_bodyDef;
             b2PolygonShape m_bodyShape;
             b2FixtureDef m_bodyFix;
+
+            b2World* m_world;
         public:
-            BoxGravity(sf::Vector2f size, sf::Vector2f pos);
             BoxGravity(sf::Vector2f size, sf::Vector2f pos, b2World& world);
 
-            void SetWorld(b2World& world);
-            b2Body* GetBody(); // Get Box2d body
+            virtual ~BoxGravity();
+
             void Update(sf::RenderWindow *window) override;
     };
 
@@ -46,12 +47,13 @@ namespace ent
             b2BodyDef m_bodyDef;
             b2PolygonShape m_bodyShape;
             b2FixtureDef m_bodyFix;
+
+            b2World* m_world;
         public:
-            BoxStatic(sf::Vector2f size, sf::Vector2f pos);
             BoxStatic(sf::Vector2f size, sf::Vector2f pos, b2World& world);
 
-            void SetWorld(b2World& world);
-            b2Body* GetBody(); // Get Box2d body
-            void Start(sf::RenderWindow *window) override;
+            virtual ~BoxStatic();
+
+            void Update(sf::RenderWindow *window) override;
     };
 }
